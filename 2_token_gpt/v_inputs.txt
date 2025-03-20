@@ -1,0 +1,9 @@
+1. Hallucination
+2. 1:39:50 working memory
+3. using self knowledge
+4. models need tokens to think: single, unlimited, code
+5. Models struggle with spelling
+   ubiquites it cannot print the every third word
+6. Reinforsement learning in LLM's
+7. Deepseek R1 :  thinking and presenting aspects 
+8. RLHF
