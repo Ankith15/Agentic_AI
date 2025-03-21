@@ -173,6 +173,5 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 venv
-2_token_gpt/images
-2_token_gpt/Blog_on_GPT.docx
+
 
