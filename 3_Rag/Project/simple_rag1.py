@@ -7,15 +7,17 @@ from dotenv import load_dotenv
 
 load_dotenv()  # Load environment variables
 api_key = os.getenv('groq_api')
-faiss_path = r'F:\\machine learning\\Prodigal_Internship\\3_Rag\\Projects\\faiss_index'  
+faiss_path = r'F:\\machine learning\\Prodigal_Internship\\3_Rag\\Project\\faiss_index'  
 
 prompt_template = """
 Answer the question based only on the following context:
 {context}
 you have to elaborate the answer very well do not hallucinate give just on to the point answers
-the answer can be of one or two paragraph Not more than that.
+the answer can be of one or two paragraph Not more than that and contains atleast 5 lines in a paragraph.
 
 answer the question on the above context: {question}\n
+Note: just give the answer at the end dont tell according to this context or anything
+
 """
 
 def main(query):
@@ -47,7 +49,7 @@ def main(query):
     response = model.invoke(prompt)
 
     sources = [doc.metadata.get('source', None) for doc, _score in results]
-    formatted_response = f"Response: {response.content}\n\nSources: {sources}" 
+    formatted_response = f"Response: {response.content}\n\nSources: {sources[0]}" 
     print('formatted response is: \n',formatted_response)
     return formatted_response
 

@@ -32,6 +32,9 @@ def get_cached_response(query: str):
     """
     cache_data = st.session_state.get("query_cache", {})
     return cache_data.get(query, None)
+if "chat_history" not in st.session_state:
+    st.session_state.chat_history = []
+
 
 left, space, right = st.columns([8, 1, 12])
 
@@ -44,25 +47,38 @@ with space:
     st.markdown("<br><br><br>", unsafe_allow_html=True)  
 
 with right:
-    st.title("Data Science Teacher")
+    st.title("Data Science Professor ☠️")
 
-    if "chat_history" not in st.session_state:
-        st.session_state.chat_history = []
+    chat_container= st.container()
+
+    with chat_container:
+        for msg in st.session_state.chat_history:
+            if isinstance(msg,HumanMessage):
+                with st.chat_message("user"):
+                    st.markdown(msg.content)
+            elif isinstance(msg,AIMessage):
+                with st.chat_message("assistant"):
+                    st.markdown(msg.content)
+
+    
     
     user_query = st.chat_input("Ask me questions related to Data Science 🎃")
 
-    if user_query is not None and user_query !='':
+    if user_query:
         with st.spinner("Fetching the details..."):
-            response = get_cached_response(user_query)
+            cached_response = get_cached_response(user_query)
             st.session_state.chat_history.append(HumanMessage(user_query))
-            with st.chat_message("user"):  
-                st.markdown(user_query)
-            if response is not None and response !='':
-                st.markdown(response)
+            with chat_container:
+                with st.chat_message("user"):  
+                    st.markdown(user_query)
+            if cached_response:
+                response = cached_response
             else:
-                with st.chat_message("assistant"):  
-                    response = main(user_query)
-                    store_response(user_query,response)
+                response = main(user_query)
+                store_response(user_query,response)
+            st.session_state.chat_history.append(AIMessage(response))  
+            with chat_container:
+                with st.chat_message("assistant"):
                     st.markdown(response)
 
-        st.session_state.chat_history.append(AIMessage(response))  
+            
