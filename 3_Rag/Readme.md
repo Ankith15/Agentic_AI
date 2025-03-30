@@ -15,7 +15,7 @@ A **Streamlit-powered chatbot** that leverages **Retrieval-Augmented Generation 
 
 ##  Project Video
 
-https://github.com/Ankith15/Agentic_AI/blob/main/3_Rag/images/Project_video.mp4
+https://github.com/user-attachments/assets/0608b03c-1461-4245-8cc3-2b4a2e02f82e
 
 
 ## **🛠 Installation**
