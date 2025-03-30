@@ -3,3 +3,12 @@ datasets
 tokenizers 
 tqdm
 tensorboard
+langchain
+langchain-core
+faiss-cpu
+langchain-community
+sentence-transformers
+rank_bm25
+redis
+pypdf
+streamlit

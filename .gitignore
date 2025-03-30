@@ -173,5 +173,7 @@ cython_debug/
 # PyPI configuration file
 .pypirc
 venv
-
-
+# 3_Rag
+ 
+3_Rag/Learnings/Fine_tuning.py
+ 
