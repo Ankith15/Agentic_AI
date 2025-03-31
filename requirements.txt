@@ -12,3 +12,8 @@ rank_bm25
 redis
 pypdf
 streamlit
+
+
+pandas 
+numpy
+
