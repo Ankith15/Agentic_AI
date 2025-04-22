@@ -9,7 +9,7 @@ import os
 import shutil
 load_dotenv()
 
-data_path = r"F:\\machine learning\\Prodigal_Internship\\3_Rag\\Files\\ds_pdf_data_removed.pdf"
+data_path = r"C:\\Users\\USER\\Downloads\\OTC_ADDDF_2022.pdf"
 faiss_path = "faiss_index"  # Changed path for FAISS
 
 def generate_data_store():
